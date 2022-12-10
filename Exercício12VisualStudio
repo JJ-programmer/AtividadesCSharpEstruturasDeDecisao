@@ -1,0 +1,37 @@
+using System;
+
+public class FolhaDePagamento 
+{
+    public static void Main() 
+    {
+        Console.WriteLine("Cáculo da folha de pagamento");
+
+        double valorHora;
+        int horasTrabalhadas;
+
+        Console.Write("Informe o valor da hora: ");
+        valorHora = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Informe a quantidade de horas trabalhadas: ");
+        horasTrabalhadas = Convert.ToInt32(Console.ReadLine());
+
+        double salarioBruto = valorHora * horasTrabalhadas;
+        double taxasSindical = salarioBruto * 3 / 100;
+        double fgts = salarioBruto * 11 / 100;
+        double inss = salarioBruto + 10 / 100;
+        double ir = 0.0;
+
+        if (salarioBruto >= 900.0 && salarioBruto <= 1500.0)
+            ir = salarioBruto * 0.05;
+        else if (salarioBruto > 1500.0 && salarioBruto <= 2500)
+            ir = salarioBruto * 0.10;
+        else if (salarioBruto > 2500)
+            ir = salarioBruto * 0.20;
+        double totalDesc= taxasSindical + inss+ ir;
+        double salarioLiquido = salarioBruto - totalDesc;
+
+        Console.WriteLine($"Salário Bruto: " + $"({valorHora} * {horasTrabalhadas})\t : " + $"R${salarioBruto}");
+        Console.WriteLine($"(-) IR: \t\t\t{ir}");
+        //incompleto
+    }
+}

@@ -1,0 +1,25 @@
+public class CaixaEletronico 
+{
+    public static void Main() 
+    {
+        Console.WriteLine("Este é um caixa eletrônico!");
+        Console.Write("Qual valor você deseja sacar?");
+
+        int ValorSaque;
+        ValorSaque = Convert.ToInt32(Console.ReadLine());
+
+        int[]   NotasDisponiveis = { 1, 5, 10, 50, 100 };
+        int resto = ValorSaque;
+
+        for (int i = 4; i >=0; i--) 
+        {
+            int QuantNotas = 0;
+            if (resto >= NotasDisponiveis[i]) 
+            {
+                QuantNotas = resto / NotasDisponiveis[i];
+                resto = resto % NotasDisponiveis[i];
+            }
+            Console.WriteLine($"R$ {NotasDisponiveis[i]}:" + $" {QuantNotas} ");
+        }
+    }
+}

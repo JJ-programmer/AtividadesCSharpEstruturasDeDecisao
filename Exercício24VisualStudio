@@ -1,0 +1,83 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("Digite 2 números! ");
+
+        int n1, n2;
+
+        n1 = Convert.ToInt32(Console.ReadLine());
+
+        n2 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Informe a operação que deseja realizar. ");
+
+        string operacao = Console.ReadLine();
+
+        double resultado = 0;
+
+        if (operacao == "+")
+        {
+            resultado = n1 + n2;
+        }
+
+        else if (operacao == "-")
+        {
+            resultado = n1 - n2;
+        }
+
+        else if (operacao == "*")
+        {
+            resultado = n1 * n2;
+        }
+
+        else if (operacao == "/")
+        {
+            resultado = n1 / n2;
+        }
+        else
+        {
+            Console.WriteLine("Operação Inválida. ");
+            return;
+        }
+
+        string paridade;
+
+        string sinal;
+
+        string tipo;
+
+        if (resultado < 0)
+        {
+            sinal = "negativo";
+        }
+        else
+        {
+            sinal = "positivo";
+        }
+
+        if (resultado % 2 == 0)
+        {
+            paridade = "par";
+        }
+
+        else
+        {
+            paridade = "impar";
+        }
+
+        if (resultado - Math.Truncate(resultado) == 0)
+        {
+            tipo = "inteiro";
+        }
+
+        else
+        {
+            tipo = "decimal";
+        }
+
+        Console.WriteLine($"O resultado é: {resultado}. É um valor {sinal}, {paridade}, do tipo {tipo}");
+    }
+}
